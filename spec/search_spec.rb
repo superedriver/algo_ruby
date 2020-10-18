@@ -123,5 +123,37 @@ RSpec.describe "Search" do
         expect(binary_search_last_entry([], 6)).to eq(0)
       end
     end
+
+    describe "Cube Root Trick With For" do
+      it "0" do
+        expect(cube_root_trick_with_for(0)).to eq(0)
+      end
+
+      it "27" do
+        expect(cube_root_trick_with_for(27)).to eq(3)
+      end
+
+      it "10" do
+        expect(cube_root_trick_with_for(10)).to eq(2.154434690031884)
+      end
+    end
+
+    describe "Cube Root Max Accuracy" do
+      it "0" do
+        expect(cube_root_max_accuracy(0)).to eq(-1.3518179858534569e-108)
+      end
+
+      it "27" do
+        expect(cube_root_max_accuracy(27)).to eq(3)
+      end
+
+      it "10" do
+        expect(cube_root_max_accuracy(10)).to eq(2.154434690031884)
+      end
+
+      it "10" do
+        expect(cube_root_max_accuracy(100)).to eq(4.641588833612779)
+      end
+    end
   end
 end

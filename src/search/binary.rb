@@ -56,3 +56,37 @@ def binary_search_last_entry(arr, val)
   # good place for insertion insert
   arr[bad] == val ? bad : good
 end
+
+def cube_root_trick_with_for(val)
+  bad = -1
+  good = val + 1
+
+  60.times do
+    m = (good + bad)/2.0
+    if m * m * m >= val
+      good = m
+    else
+      bad = m
+    end
+  end
+
+  good
+end
+
+def cube_root_max_accuracy(val)
+  bad = -1
+  good = val + 1
+
+  m = (good + bad)/2.0
+
+  while (good != m) && (bad != m)
+    if m * m * m >= val
+      good = m
+    else
+      bad = m
+    end
+    m = (good + bad)/2.0
+  end
+
+  good
+end
