@@ -1,1 +1,1 @@
-# Useful Algo and Data Structures tricks.
+# Useful Algo and Data Structures tricks on Ruby.

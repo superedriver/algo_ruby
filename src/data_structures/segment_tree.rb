@@ -1,4 +1,4 @@
-class Segment_Tree_Sum_Recursion
+class Segment_Tree_Sum
   INDEX_OUT_OF_RANGE = 'Index is out of range'
   def initialize(array)
     @size = array.size
