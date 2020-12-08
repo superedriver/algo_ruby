@@ -50,6 +50,37 @@ RSpec.describe Heap_Min do
       expect{ heap.extract_min }.to raise_error(Heap_Min::HEAP_IS_EMPTY)
     end
   end
+
+  describe "empty?" do
+    it "not empty" do
+      heap = Heap_Min.new([10,8])
+      heap.extract_min
+      expect(heap.empty?).to eq(false)
+      heap.extract_min
+      expect(heap.empty?).to eq(true)
+    end
+
+    it "empty" do
+      heap = Heap_Max.new([])
+      expect(heap.empty?).to eq(true)
+    end
+  end
+
+  describe "size" do
+    it "not empty" do
+      heap = Heap_Min.new([10,8])
+      expect(heap.size).to eq(2)
+      heap.extract_min
+      expect(heap.size).to eq(1)
+      heap.extract_min
+      expect(heap.size).to eq(0)
+    end
+
+    it "empty" do
+      heap = Heap_Min.new([])
+      expect(heap.size).to eq(0)
+    end
+  end
 end
 
 RSpec.describe Heap_Max do
@@ -83,7 +114,7 @@ RSpec.describe Heap_Max do
     end
   end
 
-  describe "extract_min" do
+  describe "extract_max" do
     it "not empty" do
       heap = Heap_Max.new([10,8,7,12,15,1,2,3])
       expect(heap.instance_variable_get(:@heap)).to eq([0, 15, 12, 7, 10, 8, 1, 2, 3])
@@ -100,6 +131,37 @@ RSpec.describe Heap_Max do
     it "empty" do
       heap = Heap_Max.new([])
       expect{ heap.extract_max }.to raise_error(Heap_Max::HEAP_IS_EMPTY)
+    end
+  end
+
+  describe "empty?" do
+    it "not empty" do
+      heap = Heap_Max.new([10,8])
+      heap.extract_max
+      expect(heap.empty?).to eq(false)
+      heap.extract_max
+      expect(heap.empty?).to eq(true)
+    end
+
+    it "empty" do
+      heap = Heap_Max.new([])
+      expect(heap.empty?).to eq(true)
+    end
+  end
+
+  describe "size" do
+    it "not empty" do
+      heap = Heap_Max.new([10,8])
+      expect(heap.size).to eq(2)
+      heap.extract_max
+      expect(heap.size).to eq(1)
+      heap.extract_max
+      expect(heap.size).to eq(0)
+    end
+
+    it "empty" do
+      heap = Heap_Max.new([])
+      expect(heap.size).to eq(0)
     end
   end
 end

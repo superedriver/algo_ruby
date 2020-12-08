@@ -22,6 +22,14 @@ class Heap_Min
     min
   end
 
+  def empty?
+    @last_index == -1
+  end
+
+  def size
+    @last_index + 1
+  end
+
   private
 
   def sift_up(index)
@@ -73,6 +81,14 @@ class Heap_Max
     @last_index -= 1
     sift_down(1)
     max
+  end
+
+  def empty?
+    @last_index == 0
+  end
+
+  def size
+    @last_index
   end
 
   private

@@ -2,6 +2,7 @@ require './src/sorting/bubble'
 require './src/sorting/selection'
 require './src/sorting/insertion'
 require './src/sorting/merge'
+require './src/sorting/heap'
 
 RSpec.describe 'Sorting' do
   describe "Bubble" do
@@ -86,6 +87,38 @@ RSpec.describe 'Sorting' do
 
       it "with repetition" do
         expect(merge_sort([3,4,5,3,4,5,3,4,5,6])).to eq([3,3,3,4,4,4,5,5,5,6])
+      end
+    end
+  end
+
+  describe "Heap" do
+    describe "Min" do
+      it "empty" do
+        heap_sort_min([])
+        expect(heap_sort_min([])).to eq([])
+      end
+
+      it "full" do
+        expect(heap_sort_min([5,4,3,2,1])).to eq([1,2,3,4,5])
+      end
+
+      it "with repetition" do
+        expect(heap_sort_min([5,5,4,3,3,2,1,1,0])).to eq([0,1,1,2,3,3,4,5,5])
+      end
+    end
+
+    describe "Max" do
+      it "empty" do
+        heap_sort_min([])
+        expect(heap_sort_max([])).to eq([])
+      end
+
+      it "full" do
+        expect(heap_sort_max([5,4,3,2,1])).to eq([1,2,3,4,5])
+      end
+
+      it "with repetition" do
+        expect(heap_sort_max([5,5,4,3,3,2,1,1,0])).to eq([0,1,1,2,3,3,4,5,5])
       end
     end
   end
