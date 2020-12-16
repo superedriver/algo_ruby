@@ -81,6 +81,18 @@ RSpec.describe Heap_Min do
       expect(heap.size).to eq(0)
     end
   end
+
+  describe "peak" do
+    it "not empty" do
+      heap = Heap_Min.new([10,8])
+      expect(heap.peek).to eq(8)
+    end
+
+    it "empty" do
+      heap = Heap_Min.new([])
+      expect{ heap.peek }.to raise_error(Heap_Min::HEAP_IS_EMPTY)
+    end
+  end
 end
 
 RSpec.describe Heap_Max do
@@ -162,6 +174,18 @@ RSpec.describe Heap_Max do
     it "empty" do
       heap = Heap_Max.new([])
       expect(heap.size).to eq(0)
+    end
+  end
+
+  describe "peak" do
+    it "not empty" do
+      heap = Heap_Max.new([10,8,100])
+      expect(heap.peek).to eq(100)
+    end
+
+    it "empty" do
+      heap = Heap_Max.new([])
+      expect{ heap.peek }.to raise_error(Heap_Max::HEAP_IS_EMPTY)
     end
   end
 end

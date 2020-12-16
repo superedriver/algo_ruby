@@ -14,7 +14,7 @@ class Heap_Min
   end
 
   def extract_min
-    raise HEAP_IS_EMPTY  if @last_index == -1
+    raise HEAP_IS_EMPTY if self.empty?
     min = @heap[0]
     @heap[0] = @heap[@last_index]
     @last_index -= 1
@@ -28,6 +28,11 @@ class Heap_Min
 
   def size
     @last_index + 1
+  end
+
+  def peek
+    raise HEAP_IS_EMPTY if self.empty?
+    @heap[0]
   end
 
   private
@@ -75,7 +80,7 @@ class Heap_Max
   end
 
   def extract_max
-    raise HEAP_IS_EMPTY  if @last_index == 0
+    raise HEAP_IS_EMPTY if self.empty?
     max = @heap[1]
     @heap[1] = @heap[@last_index]
     @last_index -= 1
@@ -89,6 +94,11 @@ class Heap_Max
 
   def size
     @last_index
+  end
+
+  def peek
+    raise HEAP_IS_EMPTY if self.empty?
+    @heap[1]
   end
 
   private
