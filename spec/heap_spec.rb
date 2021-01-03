@@ -13,6 +13,12 @@ RSpec.describe Heap_Min do
       expect(heap.instance_variable_get(:@heap)).to eq([])
       expect(heap.instance_variable_get(:@last_index)).to eq(-1)
     end
+
+    it "without arguments" do
+      heap = Heap_Min.new
+      expect(heap.instance_variable_get(:@heap)).to eq([])
+      expect(heap.instance_variable_get(:@last_index)).to eq(-1)
+    end
   end
 
   describe "insert" do
@@ -105,6 +111,12 @@ RSpec.describe Heap_Max do
 
     it "empty" do
       heap = Heap_Max.new([])
+      expect(heap.instance_variable_get(:@heap)).to eq([0])
+      expect(heap.instance_variable_get(:@last_index)).to eq(0)
+    end
+
+    it "without arguments" do
+      heap = Heap_Max.new
       expect(heap.instance_variable_get(:@heap)).to eq([0])
       expect(heap.instance_variable_get(:@last_index)).to eq(0)
     end

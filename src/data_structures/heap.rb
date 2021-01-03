@@ -1,7 +1,7 @@
 class Heap_Min
   HEAP_IS_EMPTY = 'The heap is Empty'
   # left = 2i+1, right = 2i + 2, father = (i-1)/2
-  def initialize(array)
+  def initialize(array = [])
     @last_index = array.size - 1
     @heap = array
     (@heap.size/2).downto(0) { |index| sift_down(index) }
@@ -67,7 +67,7 @@ end
 class Heap_Max
   HEAP_IS_EMPTY = 'The heap is Empty'
   # left = 2i, right = 2i + 1, father = i/2
-  def initialize(array)
+  def initialize(array = [])
     @last_index = array.size
     @heap = [0] + array
     (@heap.size/2).downto(1) { |index| sift_down(index) }
