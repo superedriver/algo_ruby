@@ -45,7 +45,7 @@ class Huff
 
     def build_code(code)
       super
-      puts "symbol: #{@symbol} code: #{code}"
+      #puts "symbol: #{@symbol} code: #{code}"
     end
   end
 

@@ -3,6 +3,7 @@ require './src/sorting/selection'
 require './src/sorting/insertion'
 require './src/sorting/merge'
 require './src/sorting/heap'
+require './src/sorting/quick'
 
 RSpec.describe 'Sorting' do
   describe "Bubble" do
@@ -119,6 +120,40 @@ RSpec.describe 'Sorting' do
 
       it "with repetition" do
         expect(heap_sort_max([5,5,4,3,3,2,1,1,0])).to eq([0,1,1,2,3,3,4,5,5])
+      end
+    end
+  end
+
+  describe "Quick" do
+    describe "Lomuto" do
+      describe "sorting" do
+        it "empty" do
+          expect(quick_sort_lomuto([])).to eq([])
+        end
+
+        it "full" do
+          expect(quick_sort_lomuto([9,8,7,6,5,4,3,2,1])).to eq([1,2,3,4,5,6,7,8,9])
+        end
+
+        it "with repetition" do
+          expect(quick_sort_lomuto([3,4,5,3,4,5,3,4,5,6])).to eq([3,3,3,4,4,4,5,5,5,6])
+        end
+      end
+    end
+
+    describe "Hoare" do
+      describe "sorting" do
+        it "empty" do
+          expect(quick_sort_hoare([])).to eq([])
+        end
+
+        it "full" do
+          expect(quick_sort_hoare([9,8,7,6,5,4,3,2,1])).to eq([1,2,3,4,5,6,7,8,9])
+        end
+
+        it "with repetition" do
+          expect(quick_sort_hoare([3,4,5,3,4,5,3,4,5,6])).to eq([3,3,3,4,4,4,5,5,5,6])
+        end
       end
     end
   end
