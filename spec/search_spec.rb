@@ -164,14 +164,38 @@ RSpec.describe "Search" do
         @array = [10,2,5,7,8,3,0]
       end
 
-      it "one" do
+      it "1" do
         expect(nth_element(@array, 0)).to eq(0)
+      end
+
+      it "2" do
         expect(nth_element(@array, 1)).to eq(2)
+      end
+
+      it "3" do
         expect(nth_element(@array, 2)).to eq(3)
+      end
+
+      it "4" do
+
         expect(nth_element(@array, 3)).to eq(5)
+
+      end
+
+      it "5" do
         expect(nth_element(@array, 4)).to eq(7)
+
+      end
+
+      it "6" do
         expect(nth_element(@array, 5)).to eq(8)
+
+
+      end
+
+      it "7" do
         expect(nth_element(@array, 6)).to eq(10)
+
       end
     end
   end
