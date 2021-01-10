@@ -31,8 +31,6 @@ def quick_sort_lomuto(array)
   qs_lomuto(array, 0, size-1)
 end
 
-
-
 def hoare_partition(array, left, right)
   return if left >= right
 
@@ -71,5 +69,3 @@ def quick_sort_hoare(array)
   qs_hoare(array, 0, size-1)
   array
 end
-
-quick_sort_hoare([1,3,5,7,5,3,2])

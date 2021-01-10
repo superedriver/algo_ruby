@@ -1,5 +1,6 @@
 require './src/search/linear'
 require './src/search/binary'
+require './src/search/quick'
 
 RSpec.describe "Search" do
   describe "Linear" do
@@ -153,6 +154,24 @@ RSpec.describe "Search" do
 
       it "10" do
         expect(cube_root_max_accuracy(100)).to eq(4.641588833612779)
+      end
+    end
+  end
+
+  describe "Quick Search NTH Element" do
+    describe "Search nth_element" do
+      before(:each) do
+        @array = [10,2,5,7,8,3,0]
+      end
+
+      it "one" do
+        expect(nth_element(@array, 0)).to eq(0)
+        expect(nth_element(@array, 1)).to eq(2)
+        expect(nth_element(@array, 2)).to eq(3)
+        expect(nth_element(@array, 3)).to eq(5)
+        expect(nth_element(@array, 4)).to eq(7)
+        expect(nth_element(@array, 5)).to eq(8)
+        expect(nth_element(@array, 6)).to eq(10)
       end
     end
   end
