@@ -27,4 +27,9 @@ class QueueSized
     @head = (@head + 1)%@capacity
     pop
   end
+
+  def peek
+    raise QUEUE_IS_EMPTY if @size == 0
+    @array[@head]
+  end
 end

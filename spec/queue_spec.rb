@@ -77,4 +77,27 @@ RSpec.describe QueueSized do
       expect(queue.capacity).to eq(100)
     end
   end
+
+  describe "peek" do
+    it "peek" do
+      queue = QueueSized.new(1000)
+      queue.enqueue(1)
+      expect(queue.peek).to eq(1)
+      queue.enqueue(2)
+      expect(queue.peek).to eq(1)
+      queue.enqueue(3)
+      expect(queue.peek).to eq(1)
+      queue.enqueue(4)
+      expect(queue.peek).to eq(1)
+
+      queue.dequeue
+      expect(queue.peek).to eq(2)
+      queue.dequeue
+      expect(queue.peek).to eq(3)
+      queue.dequeue
+      expect(queue.peek).to eq(4)
+      queue.dequeue
+      expect{ queue.dequeue }.to raise_error(QueueSized::QUEUE_IS_EMPTY)
+    end
+  end
 end
