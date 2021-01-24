@@ -38,6 +38,14 @@ class LinkedList
     @sentinel.next
   end
 
+  def delete_first
+    raise LIST_IS_EMPTY if size == 0
+    removed = @sentinel.next
+    @sentinel.next = removed.next
+    @size -= 1
+    removed.data
+  end
+
   def size
     @size
   end

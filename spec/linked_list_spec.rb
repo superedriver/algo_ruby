@@ -68,6 +68,30 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe "delete_first" do
+    it "empty ll" do
+      ll = LinkedList.new
+      expect{ ll.delete_first }.to raise_error(LinkedList::LIST_IS_EMPTY)
+    end
+
+    it "not empty ll" do
+      ll = LinkedList.new(5)
+      expect(ll.delete_first).to eq(5)
+      expect{ll.delete_first }.to raise_error(LinkedList::LIST_IS_EMPTY)
+      expect(ll.size).to eq(0)
+    end
+
+    it "three times" do
+      ll = LinkedList.new(5)
+      ll.add_last(9)
+      ll.add_last(8)
+      expect(ll.size).to eq(3)
+      expect(ll.delete_first).to eq(5)
+      expect(ll.delete_first).to eq(9)
+      expect(ll.delete_first).to eq(8)
+    end
+  end
+
   describe "size" do
     it "empty ll" do
       ll = LinkedList.new
@@ -99,6 +123,19 @@ RSpec.describe LinkedList do
       ll.add_first(8)
       expect(ll.size).to eq(3)
     end
+
+    it "delete_first" do
+      ll = LinkedList.new(5)
+      ll.add_last(9)
+      ll.add_last(8)
+      expect(ll.size).to eq(3)
+      ll.delete_first
+      expect(ll.size).to eq(2)
+      ll.delete_first
+      expect(ll.size).to eq(1)
+      ll.delete_first
+      expect(ll.size).to eq(0)
+    end
   end
 
   describe "empty?" do
@@ -124,6 +161,15 @@ RSpec.describe LinkedList do
       expect(ll.empty?).to eq(true)
       ll.add_first(9)
       expect(ll.empty?).to eq(false)
+    end
+
+    it "delete_first" do
+      ll = LinkedList.new
+      expect(ll.empty?).to eq(true)
+      ll.add_first(9)
+      expect(ll.empty?).to eq(false)
+      ll.delete_first
+      expect(ll.empty?).to eq(true)
     end
   end
 end
