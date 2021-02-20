@@ -172,4 +172,45 @@ RSpec.describe LinkedList do
       expect(ll.empty?).to eq(true)
     end
   end
+
+  describe "delete" do
+    it "empty" do
+      ll = LinkedList.new
+      expect(ll.empty?).to eq(true)
+      expect(ll.size).to eq(0)
+      ll.delete(4)
+      expect(ll.empty?).to eq(true)
+      expect(ll.size).to eq(0)
+    end
+
+    it "one item" do
+      ll = LinkedList.new(4)
+      expect(ll.size).to eq(1)
+      ll.delete(4)
+      expect(ll.empty?).to eq(true)
+      expect(ll.size).to eq(0)
+    end
+
+    it "several items" do
+      ll = LinkedList.new(4)
+      ll.add_last(1)
+      ll.add_last(2)
+      ll.add_last(3)
+      ll.add_last(4)
+      expect(ll.size).to eq(5)
+      ll.delete(4)
+      expect(ll.size).to eq(3)
+    end
+
+    it "same item" do
+      ll = LinkedList.new(4)
+      ll.add_last(4)
+      ll.add_last(4)
+      ll.add_last(4)
+      ll.add_last(4)
+      expect(ll.size).to eq(5)
+      ll.delete(4)
+      expect(ll.size).to eq(0)
+    end
+  end
 end

@@ -46,6 +46,24 @@ class LinkedList
     removed.data
   end
 
+  def delete(value)
+    craw = @sentinel.next
+    prev = @sentinel
+
+    while craw
+      if craw.data == value
+        if craw.next
+          prev.next = craw.next
+        else
+          prev.next = nil
+        end
+        @size -= 1
+      end
+
+      craw = craw.next
+    end
+  end
+
   def size
     @size
   end
